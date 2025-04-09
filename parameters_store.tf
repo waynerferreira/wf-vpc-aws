@@ -4,6 +4,28 @@ resource "aws_ssm_parameter" "vpc" {
     value = aws_vpc.main.id
 }
 
+################ subnet public ####################
+resource "aws_ssm_parameter" "public_1a" {
+  name = format("%s-/vpc/subnet_public_1a", var.project_name)
+  type = "String"
+  value = aws_subnet.public_subnet_1a.id
+}
+
+resource "aws_ssm_parameter" "public_1b" {
+  name = format("%s-/vpc/subnet_public_1b", var.project_name)
+  type = "String"
+  value = aws_subnet.public_subnet_1b.id
+}
+
+resource "aws_ssm_parameter" "public_1c" {
+  name = format("%s-/vpc/subnet_public_1c", var.project_name)
+  type = "String"
+  value = aws_subnet.public_subnet_1c.id
+}
+
+############# subnet private ########################
+
+
 resource "aws_ssm_parameter" "private_1a" {
   name = format("%s-/vpc/subnet_private_1a", var.project_name)
   type = "String"
